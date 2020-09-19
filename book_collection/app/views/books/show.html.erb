@@ -1,0 +1,30 @@
+<% if !flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+<%= link_to("Return to Home page", books_path , :class => 'back-link') %>
+
+<table>
+    <tr>
+    <th>Title</th>
+    <td><%= @book.Title%></td>
+    </tr>
+    <tr>
+    <th>Genre</th>
+    <td><%= @book.Genre%></td>
+    </tr>
+    <tr>
+    <th>Author</th>
+    <td><%= @book.Author%></td>
+    </tr>
+    <tr>
+    <th>Price</th>
+    <td><%= @book.Price%></td>
+    </tr>
+    <tr>
+    <th>Date</th>
+    <td><%= @book.Date%></td>
+    </tr>
+</table>
