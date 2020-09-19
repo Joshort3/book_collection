@@ -1,0 +1,47 @@
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 10%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<% if !flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+<h1>Your Book Collection</h1>
+
+<%= link_to("Add New Book", new_book_path, :class => 'action new') %>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Author</th>
+        <th>Actions</th>
+    </tr>
+    <% @books.each do |book| %>
+    <tr>
+        <td> <%= book.Title %> </td>
+        <td> <%= book.Genre %> </td>
+        <td> <%= book.Author %> </td>
+        <td class="actions">
+        <%= link_to("Show", book_path(book), :class => 'action show') %>
+        <%= link_to("Edit", edit_book_path(book), :class => 'action edit') %>
+        <%= link_to("Delete", delete_book_path(book), :class => 'action delete') %>
+        </td>
+    </tr>
+    <% end %>
+</table

@@ -1,0 +1,32 @@
+<%= link_to("Back to Home", books_path, :class => 'back-link') %>
+<h1>Fill in the information to add a book to your collection!</h1>
+
+<%= form_for(@book) do |f| %>
+
+    <table>
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:Title)%></td>
+      </tr>
+      <tr>
+        <th>Author</th>
+        <td><%= f.text_field(:Author)%></td>
+      </tr>
+      <tr>
+        <th>Genre</th>
+        <td><%= f.select :Genre, ['Adventure','Drama','Fantasy','Horror','Humor','Romance','Thriller'] %></td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td><%= f.text_field(:Price)%></td>
+      </tr>
+      <tr>
+        <th>Date</th>
+        <td><%= f.date_select :Date, :start_year => 1750 %></td>
+      </tr>
+    </table>
+    
+<%= f.submit("Submit") %>
+<% end %>
+
+
